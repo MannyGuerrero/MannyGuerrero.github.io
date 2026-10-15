@@ -230,7 +230,7 @@ function LinearStrip() {
           <li key={s}>{s}</li>
         ))}
       </ol>
-      <figcaption>Linear handoffs. Every step waits on a person.</figcaption>
+      <figcaption>The old way: linear handoffs. Every step waits on a person.</figcaption>
     </figure>
   );
 }
@@ -282,7 +282,7 @@ function LoopRing() {
         Closed loop
       </text>
       <text x={cx} y={cy + 20} textAnchor="middle" className="loop-core-s">
-        agents move, people decide
+        agents work in parallel, people decide
       </text>
     </svg>
   );
