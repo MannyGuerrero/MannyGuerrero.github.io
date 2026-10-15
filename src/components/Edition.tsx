@@ -51,17 +51,8 @@ function Ticker() {
   );
 }
 
-function Actions({ variant }: { variant: Variant }) {
-  return variant === "clients" ? (
-    <div className="cta-row">
-      <a className="btn" href={mailto}>
-        Start a conversation
-      </a>
-      <a className="btn ghost" href={site.linkedin}>
-        LinkedIn
-      </a>
-    </div>
-  ) : (
+function Actions(_: { variant: Variant }) {
+  return (
     <div className="cta-row">
       <a className="btn" href={site.linkedin}>
         Connect on LinkedIn
@@ -312,7 +303,7 @@ function Craft() {
   return (
     <Sec id="craft" rail={craft.eyebrow} title={craft.headline}>
       <p className="body-lg">{craft.body}</p>
-      <Converge />
+      <Converge caption={craft.caption} />
     </Sec>
   );
 }
@@ -403,6 +394,7 @@ export default function Edition({ variant }: { variant: Variant }) {
             <Work variant={variant} />
             <Industries />
             <Adaptive />
+            <Craft />
             <Contact variant={variant} />
           </>
         ) : (

@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: { card: "summary_large_image", images: ["/og/og-peers.png"] },
+  // Shared by link only. Kept out of search.
+  robots: { index: false, follow: false },
 };
 
 export default function Page() {

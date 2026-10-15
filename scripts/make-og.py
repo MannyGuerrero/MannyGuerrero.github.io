@@ -54,7 +54,7 @@ def make(path, label, headline):
         d.line([cx, cy, cx + 22 * dx, cy], fill=AMBER, width=3)
         d.line([cx, cy, cx, cy + 22 * dy], fill=AMBER, width=3)
     # text
-    d.text((70, 80), "MANNY GUERRERO  |  " + label, font=font(20, mono=True), fill=AMBER)
+    d.text((70, 80), "MANNY GUERRERO" + ("  |  " + label if label else ""), font=font(20, mono=True), fill=AMBER)
     f = font(52, bold=True)
     y = 150
     for line in wrap(d, headline, f, 660):
@@ -64,6 +64,6 @@ def make(path, label, headline):
     img.save(path, optimize=True)
 
 os.makedirs("public/og", exist_ok=True)
-make("public/og/og-clients.png", "CLIENTS", "I lead product where shipping is hard, and the teams that make it happen.")
+make("public/og/og-clients.png", "", "How I lead product, build teams, and ship in the agent era.")
 make("public/og/og-peers.png", "PEERS", "How I lead product, build teams, and ship in the agent era.")
 print("wrote public/og/og-clients.png and og-peers.png")

@@ -1,3 +1,7 @@
-# LAUNCH GATE: change to "Allow: /" and set NEXT_PUBLIC_INDEXABLE=true only after Umbrage sign off.
+# Crawlers may read the site. Only the clients page (/) is indexable;
+# /peers/ carries a noindex tag. Do not Disallow /peers/ here, or crawlers
+# cannot see that tag.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://mannyguerrero.github.io/sitemap.xml

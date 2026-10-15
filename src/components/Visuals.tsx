@@ -46,7 +46,7 @@ export function Bridge({ first, second }: { first?: string; second?: string }) {
 }
 
 /* 2. Role convergence: product manager, designer and engineer into product builder. */
-export function Converge() {
+export function Converge({ caption }: { caption?: string }) {
   const roles = [["Product manager", 52], ["Designer", 130], ["Engineer", 208]] as const;
   return (
     <figure className="viz">
@@ -72,6 +72,7 @@ export function Converge() {
           judgment, context, intent
         </text>
       </svg>
+      {caption ? <figcaption className="viz-note">{caption}</figcaption> : null}
     </figure>
   );
 }

@@ -47,10 +47,10 @@ export const industryLabel = industryCount >= 10 ? "10+" : String(industryCount)
 
 export const heroes = {
   clients: {
-    headline: "I lead product where shipping is hard, and the teams that make it happen.",
+    headline: "How I lead product, build teams, and ship in the agent era.",
     sub: `At Umbrage (Bain & Company), the product and AI delivery studio within the firm, I help organizations across ${industryLabel} industries turn their hardest problems into products people rely on.`,
-    cta: { label: "Start a conversation", kind: "email" as const },
-    ctaAlt: { label: "LinkedIn", href: site.linkedin },
+    cta: { label: "Connect on LinkedIn", kind: "link" as const, href: site.linkedin },
+    ctaAlt: { label: "Email", kind: "email" as const },
   },
   peers: {
     headline: "How I lead product, build teams, and ship in the agent era.",
@@ -173,6 +173,7 @@ export const craft = {
   eyebrow: "Craft",
   headline: "The product manager role is converging with the builder role.",
   body: "When agents write the code, the scarce skills are judgment, context and clear intent. I coach product managers to build and evaluate with AI, not just write specs for it.",
+  caption: "Each role keeps its craft. What disappears are the handoffs between them.",
 };
 
 export const ladder: { level: string; name: string; line: T }[] = [

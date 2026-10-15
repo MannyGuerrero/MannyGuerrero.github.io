@@ -225,3 +225,5 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .viz-cap { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 760px; margin-top: 8px; }
 .viz-cap p { margin: 0; color: var(--soft); font-size: 15px; line-height: 1.55; }
 @media (max-width: 640px) { .viz-cap { grid-template-columns: 1fr; gap: 16px; } }
+
+.viz-note { margin-top: 12px; color: var(--muted); font-size: 0.88rem; max-width: 760px; }

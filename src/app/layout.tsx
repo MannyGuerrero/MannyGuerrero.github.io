@@ -3,14 +3,14 @@ import "@fontsource-variable/schibsted-grotesk";
 import "./globals.css";
 import { site, industryLabel } from "@/content/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-const indexable = process.env.NEXT_PUBLIC_INDEXABLE === "true";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mannyguerrero.github.io";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: `${site.name}, ${site.title}`,
   description: `${site.name} is ${site.roleLine}. Product leadership across ${industryLabel} industries.`,
-  robots: indexable ? { index: true, follow: true } : { index: false, follow: false },
+  // Default for every page is hidden. Only the clients page (/) opts in to search.
+  robots: { index: false, follow: false },
   icons: { icon: "/favicon.svg" },
   authors: [{ name: site.name }],
 };

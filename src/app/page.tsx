@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: { card: "summary_large_image", images: ["/og/og-clients.png"] },
+  // Source of truth page: the only page search engines may index.
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
 };
 
 export default function Page() {
