@@ -1,0 +1,7 @@
+# Copy to blocklist.local.txt (gitignored) and add one term per line.
+# Case insensitive. Add every real client, product, vendor and partner name
+# that must never appear on the public site, for example names from the
+# source decks and from earlier employers. Keep the real file OUT of git.
+# Lines starting with # are ignored.
+example client name
+example product name

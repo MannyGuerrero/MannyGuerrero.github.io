@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
+.env*.local
+
+# Never commit. The blocklist names real clients, products and vendors.
+blocklist.local.txt
+
+# Never commit source decks or client documents.
+source-private/
+*.pptx
+*.pdf

@@ -1,0 +1,3 @@
+# LAUNCH GATE: change to "Allow: /" and set NEXT_PUBLIC_INDEXABLE=true only after Umbrage sign off.
+User-agent: *
+Disallow: /
