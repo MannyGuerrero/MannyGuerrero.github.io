@@ -201,7 +201,7 @@ export const writing: { title: string; href: string; date?: string }[] = [
 
 export const contact = {
   headline: "Let's talk.",
-  clients: "If you have an AI or product problem that needs to get into production, I'd like to hear about it.",
+  clients: "",
   peers: "I'm always glad to connect with other product leaders, founders and anyone who likes trading ideas.",
 };
 

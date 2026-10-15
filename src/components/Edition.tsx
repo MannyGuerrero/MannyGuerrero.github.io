@@ -367,7 +367,7 @@ function Contact({ variant }: { variant: Variant }) {
         <p className="rail">Contact</p>
         <Reveal className="sec-body">
           <h2 id="ct-h">{contact.headline}</h2>
-          <p className="body-lg">{contact[variant]}</p>
+          {contact[variant] ? <p className="body-lg">{contact[variant]}</p> : null}
           <Actions variant={variant} />
           <p className="addr">
             <a href={mailto}>{site.emailUser}@{site.emailDomain}</a>
