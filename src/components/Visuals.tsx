@@ -92,6 +92,13 @@ export function IndustryMap({ items }: { items: Ind[] }) {
     const a = (i / items.length) * Math.PI * 2 - Math.PI / 2;
     return { x: Math.round((cx + rad * Math.cos(a)) * 10) / 10, y: Math.round((cy + rad * Math.sin(a)) * 10) / 10, c: Math.cos(a) };
   };
+  // Inner end of each spoke sits on an ellipse that clears the center text block,
+  // which is wider than it is tall. Side nodes start further out than top and bottom ones.
+  const spokeStart = (i: number) => {
+    const a = (i / items.length) * Math.PI * 2 - Math.PI / 2;
+    const ex = 160, ey = 120;
+    return (ex * ey) / Math.hypot(ey * Math.cos(a), ex * Math.sin(a));
+  };
   const cur = items[active];
   return (
     <div className="imap" onMouseLeave={() => setPaused(false)}>
@@ -99,7 +106,7 @@ export function IndustryMap({ items }: { items: Ind[] }) {
         <circle cx={cx} cy={cy} r={ring} fill="none" stroke="rgba(180,195,220,0.12)" strokeDasharray="2 6" />
         <circle cx={cx} cy={cy} r="120" fill="none" stroke="rgba(180,195,220,0.08)" />
         {items.map((it, i) => {
-          const p = pos(i, ring), l = pos(i, lab), s = pos(i, 112);
+          const p = pos(i, ring), l = pos(i, lab), s = pos(i, spokeStart(i));
           const on = i === active;
           return (
             <g
