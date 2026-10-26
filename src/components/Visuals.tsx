@@ -9,9 +9,10 @@ const reduced = () =>
 /* 1. The gap between a pilot and production. Conceptual only, no data. */
 export function Bridge({ first, second }: { first?: string; second?: string }) {
   const path = "M90 100 L380 100 C 450 8, 610 8, 670 100";
+  const pathM = "M48 92 L180 92 C 215 18, 280 18, 312 92";
   return (
     <figure className="viz">
-      <svg viewBox="0 0 760 190" role="img" aria-label="A path from strategy to proof of value to production, with a marked gap between proof of value and production that a moving dot crosses">
+      <svg className="d" viewBox="0 0 760 190" role="img" aria-label="A path from strategy to proof of value to production, with a marked gap between proof of value and production that a moving dot crosses">
         <path d="M136 100 L336 100" stroke="rgba(180,195,220,0.28)" strokeWidth="1.5" fill="none" />
         <path d="M426 100 L624 100" stroke="rgba(180,195,220,0.28)" strokeWidth="1.5" strokeDasharray="4 6" fill="none" />
         <path d={path} className="viz-path" fill="none" stroke="#7fa8dc" strokeWidth="1.6" />
@@ -35,6 +36,31 @@ export function Bridge({ first, second }: { first?: string; second?: string }) {
           where it stalls
         </text>
       </svg>
+      {/* Phone layout: same picture on a narrower canvas so labels stay readable. */}
+      <svg className="m" viewBox="0 0 360 170" role="img" aria-label="A path from strategy to proof of value to production, with a marked gap between proof of value and production that a moving dot crosses">
+        <path d="M92 92 L136 92" stroke="rgba(180,195,220,0.28)" strokeWidth="1.5" fill="none" />
+        <path d="M224 92 L268 92" stroke="rgba(180,195,220,0.28)" strokeWidth="1.5" strokeDasharray="4 5" fill="none" />
+        <path d={pathM} className="viz-path" fill="none" stroke="#7fa8dc" strokeWidth="1.6" />
+        <circle r="4" className="viz-dot" style={{ offsetPath: `path("${pathM}")` } as React.CSSProperties} fill="#edf0f5" />
+        {([["Strategy", 48], ["Proof of value", 180], ["Production", 312]] as const).map(([t, x]) => (
+          <g key={t}>
+            <circle cx={x} cy="92" r="44" fill="#0a0d12" stroke="#7fa8dc" strokeWidth="1.4" />
+            {t.includes(" ") ? (
+              <text x={x} y="89" textAnchor="middle" className="viz-tm">
+                <tspan x={x}>{t.split(" ").slice(0, 2).join(" ")}</tspan>
+                <tspan x={x} dy="16">{t.split(" ").slice(2).join(" ")}</tspan>
+              </text>
+            ) : (
+              <text x={x} y="97" textAnchor="middle" className="viz-tm">
+                {t}
+              </text>
+            )}
+          </g>
+        ))}
+        <text x="246" y="156" textAnchor="middle" className="viz-sm">
+          where it stalls
+        </text>
+      </svg>
       {first || second ? (
         <div className="viz-cap">
           <p>{first}</p>
@@ -50,7 +76,7 @@ export function Converge({ caption }: { caption?: string }) {
   const roles = [["Product manager", 52], ["Designer", 130], ["Engineer", 208]] as const;
   return (
     <figure className="viz">
-      <svg viewBox="0 0 760 260" role="img" aria-label="Three roles, product manager, designer and engineer, converging into one product builder role">
+      <svg className="d" viewBox="0 0 760 260" role="img" aria-label="Three roles, product manager, designer and engineer, converging into one product builder role">
         {roles.map(([t, y], i) => {
           const d = `M178 ${y} C 360 ${y}, 400 130, 540 130`;
           return (
@@ -69,6 +95,29 @@ export function Converge({ caption }: { caption?: string }) {
           Product builder
         </text>
         <text x="640" y="148" textAnchor="middle" className="viz-s">
+          judgment, context, intent
+        </text>
+      </svg>
+      {/* Phone layout: same picture on a narrower canvas so labels stay readable. */}
+      <svg className="m" viewBox="0 0 360 230" role="img" aria-label="Three roles, product manager, designer and engineer, converging into one product builder role">
+        {([["Product manager", 40], ["Designer", 115], ["Engineer", 190]] as const).map(([t, y], i) => {
+          const d = `M136 ${y} C 176 ${y}, 176 115, 206 115`;
+          return (
+            <g key={t}>
+              <path d={d} fill="none" stroke="#7fa8dc" strokeWidth="1.4" className="viz-path" style={{ ["--d" as string]: `${i * 0.2}s` }} />
+              <circle r="3.5" fill="#edf0f5" className="viz-dot flow" style={{ offsetPath: `path("${d}")`, animationDelay: `${i * 1.1}s` } as React.CSSProperties} />
+              <rect x="1" y={y - 20} width="135" height="40" rx="6" fill="#0a0d12" stroke="rgba(180,195,220,0.28)" />
+              <text x="68.5" y={y + 5} textAnchor="middle" className="viz-tm">
+                {t}
+              </text>
+            </g>
+          );
+        })}
+        <rect x="206" y="85" width="153" height="60" rx="6" fill="#0a0d12" stroke="#7fa8dc" strokeWidth="1.4" />
+        <text x="282.5" y="111" textAnchor="middle" className="viz-tm">
+          Product builder
+        </text>
+        <text x="282.5" y="131" textAnchor="middle" className="viz-sm">
           judgment, context, intent
         </text>
       </svg>

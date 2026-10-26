@@ -228,3 +228,12 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 
 .viz-note { margin-top: 12px; color: var(--muted); font-size: 0.88rem; max-width: 760px; }
 .contact h2 + .cta-row { margin-top: 22px; }
+
+/* Diagrams: wide layout on desktop, narrow layout on phones so labels stay readable */
+.viz svg.m { display: none; }
+.viz-tm { fill: #edf0f5; font-family: var(--sans); font-size: 13px; font-weight: 600; }
+.viz-sm { fill: #8c97a8; font-family: var(--sans); font-size: 11px; }
+@media (max-width: 640px) {
+  .viz svg.d { display: none; }
+  .viz svg.m { display: block; }
+}
