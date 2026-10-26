@@ -63,7 +63,7 @@ export const heroes = {
 // Counters: verified facts only (current portfolio). See HANDOFF.md, "Numbers".
 export const counters = [
   { value: industryCount >= 10 ? 10 : industryCount, suffix: industryCount >= 10 ? "+" : "", label: "Industries" },
-  { value: 3, suffix: "+", label: "Latin American markets" },
+  { value: 4, suffix: "+", label: "Latin American markets" },
   { value: 80000, suffix: "+", label: "Active users within three weeks of a loyalty app launch" },
 ];
 
@@ -207,5 +207,5 @@ export const contact = {
 
 
 // Scrolling ticker under the header: industries and regions only.
-export const regions: string[] = ["USA", "Mexico", "Brazil", "EU", "Argentina"];
+export const regions: string[] = ["USA", "Mexico", "Brazil", "Argentina", "Chile", "EU", "UK"];
 export const ticker: string[] = [...industries.map((i) => i.name), ...regions];
